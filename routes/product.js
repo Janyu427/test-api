@@ -75,11 +75,11 @@ const products = {
 };
 
 router.get("/", (req, res) => {
-    const key = req.query.key;
+    res.json(products.product);
+});
 
-    if (!key) {
-        return res.json(products);
-    }
+router.get("/:key", (req, res) => {
+    const key = req.params.key;
     
     for (let i = 0; i < products.product.length; i ++) {
         if (products.product[i].key == key) {
