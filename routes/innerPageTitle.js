@@ -37,11 +37,11 @@ const innerPageTitle = {
 };
 
 router.get("/", (req, res) => {
-    const key = req.query.key;
+    res.json(innerPageTitle);
+});
 
-    if (!key) {
-        return res.json(innerPageTitle);
-    }
+router.get("/:key", (req, res) => {
+    const key = req.params.key;
 
     for (let i = 0; i < innerPageTitle.InnerBannerPageTitle.length; i ++) {
         if (innerPageTitle.InnerBannerPageTitle[i].key == key) {
